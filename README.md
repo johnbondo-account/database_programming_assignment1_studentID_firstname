@@ -302,8 +302,3 @@ database_programming_assignment1_studentID_firstname/
 - MySQL Documentation. (2024). *Window Functions*. https://dev.mysql.com/doc/refman/8.0/en/window-functions.html
 - Forta, B. (2020). *MySQL Crash Course* (2nd ed.). Sams Publishing.
 - Winand, M. (2015). *SQL Performance Explained*. Markus Winand.
-
----
-
-
-*Last updated: 2024 | Hospital Management System — Advanced SQL Programming Assignment*
