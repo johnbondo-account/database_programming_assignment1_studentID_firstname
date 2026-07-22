@@ -14,10 +14,7 @@
 7. [Window Function Implementations](#window-function-implementations)
 8. [Analysis and Findings](#analysis-and-findings)
 9. [Repository Structure](#repository-structure)
-10. [How to Run](#how-to-run)
-11. [References](#references)
-12. [Academic Integrity Statement](#academic-integrity-statement)
-
+10. [References](#references)
 ---
 
 ## Business Problem
