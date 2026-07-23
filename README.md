@@ -145,37 +145,52 @@ erDiagram
 ## CTE Implementations
 
 ### CTE 1 — Simple CTE: High-Value Patients
+
 Identifies patients whose total completed appointment spending exceeds $500. The CTE pre-aggregates spending per patient; the outer query joins to retrieve patient names.
 
-**Screenshot:** `Screenshots/cte1.png`
+**Screenshot:**
+
+![CTE 1](Screenshots/cte1.png)
 
 ---
 
 ### CTE 2 — Multiple CTEs: Above-Average Doctors
+
 Chains two CTEs: the first computes per-doctor revenue totals, the second computes hospital-wide averages. The final query finds doctors who exceed both the average revenue and average visit count.
 
-**Screenshot:** `Screenshots/cte2.png`
+**Screenshot:**
+
+![CTE 2](Screenshots/cte2.png)
 
 ---
 
 ### CTE 3 — Recursive CTE: Staff Hierarchy
+
 Traverses the hospital's management structure from the Chief Medical Officer down to individual doctors using a recursive self-join. Produces an indented org chart with hierarchy depth levels.
 
-**Screenshot:** `Screenshots/cte3.png`
+**Screenshot:**
+
+![CTE 3](Screenshots/cte3.png)
 
 ---
 
 ### CTE 4 — CTE with Aggregation: Monthly Revenue Trend
+
 Groups completed appointments by year-month and applies SUM, COUNT, AVG, MAX, MIN. Flags the best-performing month using a CASE expression referencing the CTE in a subquery.
 
-**Screenshot:** `Screenshots/cte4.png`
+**Screenshot:**
+
+![CTE 4](Screenshots/cte4.png)
 
 ---
 
 ### CTE 5 — CTE with JOIN: Doctor Revenue Share by Department
+
 Uses two chained CTEs to compute per-doctor and per-department revenue, then joins with doctors and departments tables to show each doctor's percentage share of their department's total revenue.
 
-**Screenshot:** `Screenshots/cte5.png`
+**Screenshot:**
+
+![CTE 5](Screenshots/cte5.png)
 
 ---
 
@@ -184,34 +199,33 @@ Uses two chained CTEs to compute per-doctor and per-department revenue, then joi
 ### Ranking Functions
 
 | Function | Query Purpose | Screenshot |
-|---|---|---|
-| `ROW_NUMBER()` | Unique sequential rank of appointments per doctor by bill amount | `Screenshots/wf_row_number.png` |
-| `RANK()` | Rank all doctors by total revenue (ties share rank, gaps exist) | `Screenshots/wf_rank.png` |
-| `DENSE_RANK()` | Rank doctors within their department (no gaps in ranking) | `Screenshots/wf_dense_rank.png` |
-| `PERCENT_RANK()` | Each doctor's revenue percentile position (0–100%) | `Screenshots/wf_percent_rank.png` |
+|----------|---------------|------------|
+| `ROW_NUMBER()` | Unique sequential rank of appointments per doctor by bill amount | ![](Screenshots/wf_row_number.png) |
+| `RANK()` | Rank all doctors by total revenue (ties share rank, gaps exist) | ![](Screenshots/wf_rank.png) |
+| `DENSE_RANK()` | Rank doctors within their department (no gaps in ranking) | ![](Screenshots/wf_dense_rank.png) |
+| `PERCENT_RANK()` | Each doctor's revenue percentile position (0–100%) | ![](Screenshots/wf_percent_rank.png) |
 
 ### Aggregate Window Functions
 
 | Function | Query Purpose | Screenshot |
-|---|---|---|
-| `SUM() OVER()` | Running cumulative revenue total ordered by appointment date | `Screenshots/wf_sum.png` |
-| `AVG() OVER()` | Each appointment's bill compared to that doctor's average | `Screenshots/wf_avg.png` |
-| `MIN() / MAX() OVER()` | Department billing floor and ceiling attached to every row | `Screenshots/wf_min_max.png` |
+|----------|---------------|------------|
+| `SUM() OVER()` | Running cumulative revenue total ordered by appointment date | ![](Screenshots/wf_sum.png) |
+| `AVG() OVER()` | Each appointment's bill compared to that doctor's average | ![](Screenshots/wf_avg.png) |
+| `MIN() / MAX() OVER()` | Department billing floor and ceiling attached to every row | ![](Screenshots/wf_min_max.png) |
 
 ### Navigation Functions
 
 | Function | Query Purpose | Screenshot |
-|---|---|---|
-| `LAG()` | Compare each patient's bill to their previous appointment | `Screenshots/wf_lag.png` |
-| `LEAD()` | Preview each patient's next appointment date and bill | `Screenshots/wf_lead.png` |
+|----------|---------------|------------|
+| `LAG()` | Compare each patient's bill to their previous appointment | ![](Screenshots/wf_lag.png) |
+| `LEAD()` | Preview each patient's next appointment date and bill | ![](Screenshots/wf_lead.png) |
 
 ### Distribution Functions
 
 | Function | Query Purpose | Screenshot |
-|---|---|---|
-| `NTILE(4)` | Divide doctors into four revenue quartiles | `Screenshots/wf_ntile.png` |
-| `CUME_DIST()` | Cumulative percentage distribution of all bill amounts | `Screenshots/wf_cume_dist.png` |
-
+|----------|---------------|------------|
+| `NTILE(4)` | Divide doctors into four revenue quartiles | ![](Screenshots/wf_ntile.png) |
+| `CUME_DIST()` | Cumulative percentage distribution of all bill amounts | ![](Screenshots/wf_cume_dist.png) |
 ---
 
 ## Analysis and Findings
